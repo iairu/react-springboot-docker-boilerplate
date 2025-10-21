@@ -4,20 +4,20 @@ FROM node:18-alpine
 # Set the working directory in the container
 WORKDIR /app
 
-# Copy package.json and package-lock.json
-COPY package*.json ./
+# Copy package.json and package-lock.json from the next-js-app subdirectory
+COPY next-js-app/package*.json ./
 
 # Install dependencies
 RUN npm install
 
-# Copy the rest of the application's source code
-COPY . .
+# Copy the rest of the application's source code from the next-js-app subdirectory
+COPY next-js-app/ .
 
 # Build the React app for production
 RUN npm run build
 
-# Serve the React app with a simple web server (e.g., serve)
-FROM nginx:stable-alpine
-COPY --from=0 /app/build /usr/share/nginx/html
+# Expose the port the app runs on
 EXPOSE 3000
-CMD ["nginx", "-g", "daemon off;"]
+
+# Command to run the app using the start script
+CMD ["npm", "start"]
