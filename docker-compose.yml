@@ -1,12 +1,23 @@
 version: '3.8'
 services:
-  backend:
-    build: ./backend-java-springboot
+  nginx:
+    build: ./nginx-reverse-proxy
     ports:
-      - "8080:8080"
-  frontend:
-    build: ./frontend-react
-    ports:
-      - "3000:3000"
+      - "80:80"
     depends_on:
       - backend
+      - frontend
+  backend:
+    build: ./backend-java-springboot
+    # ports:
+    #   - "8080:8080"
+  frontend:
+    build: ./frontend-react
+    # ports:
+    #   - "3000:3000"
+    depends_on:
+      - backend
+
+networks:
+  default:
+    driver: bridge
