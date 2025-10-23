@@ -1,4 +1,4 @@
-name: react-springboot-docker-demo2
+name: react-springboot-docker-boilerplate
 services:
   nginx:
     build: ./nginx-reverse-proxy
@@ -52,12 +52,12 @@ services:
       POSTGRES_USER: boilerplate_user
       POSTGRES_PASSWORD: boilerplate_pass
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - boilerplate_postgres_data:/var/lib/postgresql/data
     # Note: PostgreSQL is only accessible by backend container (no exposed ports)
     # This provides internal network access only for security
 
 volumes:
-  postgres_data:
+  boilerplate_postgres_data:
     driver: local
 
 networks:

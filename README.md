@@ -1,4 +1,4 @@
-# React + Spring Boot + Docker Boilerplate
+# React (Next.js) + Java Spring Boot + Docker + Postgres + Nginx Boilerplate
 
 A tested working boilerplate template for modern full-stack web applications with React frontend, Java Spring Boot backend, Docker containerization, and Nginx reverse proxy for singular frontend + backend port/domain access.
 
