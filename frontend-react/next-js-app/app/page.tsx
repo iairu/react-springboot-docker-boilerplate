@@ -7,7 +7,7 @@ export default function Home() {
   const [message, setMessage] = useState<string>('');
 
   useEffect(() => {
-    axios.get('/api/hello.json')
+    axios.get('/api/hello.json') // Fetch JSON data from the backend with .json appendix for compatibility with static Github Pages deployment (if ran on live server, live API access still works this way)
       .then((response: AxiosResponse<string>) => {
         setMessage(response.data);
       })

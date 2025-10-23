@@ -1,9 +1,9 @@
-name: Build and Deploy to GitHub Pages
+name: Build, Run and Export Live Deployment as a Static Site to GitHub Pages using a separate branch
 
 on:
   push:
     branches:
-      - main
+      - main-disabled
 
 jobs:
   build-and-deploy:
@@ -34,4 +34,4 @@ jobs:
           publish_branch: gh-pages
           publish_dir: ./gh-pages
           destination_dir: .
-          cname: react-springboot-docker-static.iairu.com
+          cname: react-springboot-docker-static.example.com

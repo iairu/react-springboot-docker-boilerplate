@@ -7,16 +7,38 @@ services:
     depends_on:
       - backend
       - frontend
+    # Environment variables (uncomment to use .env file)
+    # env_file:
+    #   - .env.local
+
   backend:
     build: ./backend-java-springboot
     # ports:
     #   - "8080:8080"
+    # Environment variables (uncomment to use .env file)
+    # env_file:
+    #   - .env.local
+    # environment:
+    #   - SPRING_PROFILES_ACTIVE=${SPRING_PROFILES_ACTIVE:-development}
+    #   - SPRING_DATASOURCE_URL=${SPRING_DATASOURCE_URL:-jdbc:h2:mem:testdb}
+    #   - SPRING_DATASOURCE_USERNAME=${SPRING_DATASOURCE_USERNAME:-sa}
+    #   - SPRING_DATASOURCE_PASSWORD=${SPRING_DATASOURCE_PASSWORD:-}
+    #   - JWT_SECRET=${JWT_SECRET:-default-secret-key}
+    #   - LOG_LEVEL=${LOG_LEVEL:-INFO}
+
   frontend:
     build: ./frontend-react
     # ports:
     #   - "3000:3000"
     depends_on:
       - backend
+    # Environment variables (uncomment to use .env file)
+    # env_file:
+    #   - .env.local
+    # environment:
+    #   - REACT_APP_API_URL=${REACT_APP_API_URL:-http://localhost/api}
+    #   - REACT_APP_ENV=${REACT_APP_ENV:-development}
+    #   - NODE_ENV=production
 
 networks:
   default:
